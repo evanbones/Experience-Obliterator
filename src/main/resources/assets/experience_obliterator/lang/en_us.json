@@ -1,0 +1,31 @@
+{
+  "config.experience_obliterator.title": "Experience Obliterator",
+  "category.experience_obliterator.general": "Experience Removal",
+
+  "config.experience_obliterator.option.disable_orb_spawn": "Disable Orb Spawning",
+  "config.experience_obliterator.option.disable_orb_spawn.tooltip": "Disables the spawning of experience orbs in the world.",
+
+  "config.experience_obliterator.option.disable_orb_rendering": "Disable Orb Rendering",
+  "config.experience_obliterator.option.disable_orb_rendering.tooltip": "Disables the visual rendering of experience orbs.",
+
+  "config.experience_obliterator.option.immediate_experience_pickup": "Immediate Orb Pickup",
+  "config.experience_obliterator.option.immediate_experience_pickup.tooltip": "Automatically awards experience orbs to the nearest player upon spawn.",
+
+  "config.experience_obliterator.option.hide_experience_bar": "Hide Experience Bar",
+  "config.experience_obliterator.option.hide_experience_bar.tooltip": "Removes the experience bar and level number from the heads-up display (HUD).",
+
+  "config.experience_obliterator.option.disable_anvil": "Disable Anvil",
+  "config.experience_obliterator.option.disable_anvil.tooltip": "Disables right-click interaction with Anvils.",
+
+  "config.experience_obliterator.option.disable_enchant_table": "Disable Enchanting Table",
+  "config.experience_obliterator.option.disable_enchant_table.tooltip": "Disables right-click interaction with Enchanting Tables.",
+
+  "config.experience_obliterator.option.disable_xp_pickup_sound": "Disable XP Pickup Sound",
+  "config.experience_obliterator.option.disable_xp_pickup_sound.tooltip": "Mutes the experience orb pickup sound effect.",
+
+  "config.experience_obliterator.option.disable_xp_level_sound": "Disable XP Level Sound",
+  "config.experience_obliterator.option.disable_xp_level_sound.tooltip": "Mutes the experience level-up sound effect.",
+
+  "config.experience_obliterator.option.disable_emi_experience_display": "Disable EMI XP Display",
+  "config.experience_obliterator.option.disable_emi_experience_display.tooltip": "Removes experience text from EMI cooking and grindstone workstation recipe displays."
+}

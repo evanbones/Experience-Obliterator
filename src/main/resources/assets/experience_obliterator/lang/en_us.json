@@ -12,7 +12,7 @@
   "config.experience_obliterator.option.immediate_experience_pickup.tooltip": "Automatically awards experience orbs to the nearest player upon spawn.",
 
   "config.experience_obliterator.option.hide_experience_bar": "Hide Experience Bar",
-  "config.experience_obliterator.option.hide_experience_bar.tooltip": "Removes the experience bar and level number from the heads-up display (HUD).",
+  "config.experience_obliterator.option.hide_experience_bar.tooltip": "Removes the experience bar and level number from the HUD.",
 
   "config.experience_obliterator.option.disable_anvil": "Disable Anvil",
   "config.experience_obliterator.option.disable_anvil.tooltip": "Disables right-click interaction with Anvils.",

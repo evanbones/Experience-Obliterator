@@ -17,16 +17,16 @@ public class ModConfig {
     private static ModConfig INSTANCE;
 
     @SerializedName("disable_orb_spawn")
-    public boolean disableOrbSpawn = false;
+    public boolean disableOrbSpawn = true;
 
     @SerializedName("disable_orb_rendering")
-    public boolean disableOrbRendering = false;
+    public boolean disableOrbRendering = true;
 
     @SerializedName("immediate_experience_pickup")
-    public boolean immediateExperiencePickup = false;
+    public boolean immediateExperiencePickup = true;
 
     @SerializedName("hide_experience_bar")
-    public boolean hideExperienceBar = false;
+    public boolean hideExperienceBar = true;
 
     @SerializedName("disable_anvil")
     public boolean disableAnvil = false;
@@ -35,13 +35,13 @@ public class ModConfig {
     public boolean disableEnchantTable = false;
 
     @SerializedName("disable_xp_pickup_sound")
-    public boolean disableXpPickupSound = false;
+    public boolean disableXpPickupSound = true;
 
     @SerializedName("disable_xp_level_sound")
-    public boolean disableXpLevelSound = false;
+    public boolean disableXpLevelSound = true;
 
     @SerializedName("disable_emi_experience_display")
-    public boolean disableEmiExperienceDisplay = false;
+    public boolean disableEmiExperienceDisplay = true;
 
     public static ModConfig get() {
         if (INSTANCE == null) {

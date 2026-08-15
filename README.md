@@ -4,14 +4,17 @@
 
 ## License
 
-* **Code**: Licensed under the [MIT License](https://github.com/evanbones/Modest-Meals/blob/1.21.1/LICENSE).
+* **Code**: Licensed under
+  the [LGPLv3 License](https://github.com/evanbones/Experience-Obliterator/blob/1.21.1/LICENSE).
 * **Assets**: All Rights Reserved (ARR).
 
 ---
 
 ## Credits
 
-Based on Nostalgic Tweaks
+Based on Nostalgic Tweaks' Experience Removal tweak.
+
+Logo by Nekomaster!
 
 ---
 

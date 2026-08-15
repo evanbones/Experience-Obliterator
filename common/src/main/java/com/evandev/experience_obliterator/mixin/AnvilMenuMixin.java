@@ -28,10 +28,10 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
     private String itemName;
 
     public AnvilMenuMixin(@Nullable MenuType<?> type, int containerId, Inventory inventory, ContainerLevelAccess access) {
-        super(type, containerId, inventory, access);
+        super(type, containerId, inventory, access, null);
     }
 
-    @ModifyExpressionValue(method = "createResult", at = @At(value = "CONSTANT", args = "intValue=40"), require = 0)
+    @ModifyExpressionValue(method = {"createResult", "createResultInternal"}, at = @At(value = "CONSTANT", args = "intValue=40"), require = 0)
     private int experience_obliterator$removeTooExpensiveLimit(int constant) {
         if (ModConfig.get().removeAnvilLimit) {
             return Integer.MAX_VALUE;
@@ -39,7 +39,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
         return constant;
     }
 
-    @WrapOperation(method = "createResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/inventory/DataSlot;set(I)V"))
+    @WrapOperation(method = {"createResult", "createResultInternal"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/inventory/DataSlot;set(I)V"))
     private void experience_obliterator$modifyIndependentAnvilCosts(DataSlot instance, int originalCost, Operation<Void> original) {
         ModConfig config = ModConfig.get();
         if (!config.noAnvilEnchantCost && !config.noAnvilRepairCost && !config.noAnvilRenameCost) {
@@ -62,7 +62,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
 
         int vanillaActionCost = Math.max(0, originalCost - baseCost - vanillaRenameCost);
 
-        boolean isMaterialRepair = input1.isDamageableItem() && input1.getItem().isValidRepairItem(input1, input2);
+        boolean isMaterialRepair = input1.isDamageableItem() && input1.isValidRepairItem(input2);
         boolean isItemCombine = !input2.isEmpty() && input1.getItem() == input2.getItem();
 
         int finalCost = 0;
@@ -99,8 +99,8 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
     }
 
     @Inject(method = "mayPickup", at = @At("HEAD"), cancellable = true)
-    private void experience_obliterator$allowZeroCostPickup(Player player, boolean present, CallbackInfoReturnable<Boolean> cir) {
-        if (this.cost.get() <= 0 && present) {
+    private void experience_obliterator$allowZeroCostPickup(Player player, boolean hasItem, CallbackInfoReturnable<Boolean> cir) {
+        if (this.cost.get() <= 0 && hasItem) {
             cir.setReturnValue(true);
         }
     }

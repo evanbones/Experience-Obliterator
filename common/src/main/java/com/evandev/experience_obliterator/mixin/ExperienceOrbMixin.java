@@ -23,17 +23,19 @@ public abstract class ExperienceOrbMixin extends Entity {
     }
 
     @Shadow
-    protected abstract void scanForEntities();
+    private void followNearbyPlayer() {
+        throw new UnsupportedOperationException();
+    }
 
     @Shadow
     public abstract void playerTouch(Player player);
 
     @Inject(
-            method = "<init>(Lnet/minecraft/world/level/Level;DDDI)V",
+            method = "<init>(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;I)V",
             at = @At("RETURN")
     )
     private void experience_obliterator$onTickBeforeMovement(CallbackInfo callback) {
-        if (this.level().isClientSide || !ModConfig.get().immediateExperiencePickup) {
+        if (this.level().isClientSide() || !ModConfig.get().immediateExperiencePickup) {
             return;
         }
 
@@ -41,7 +43,7 @@ public abstract class ExperienceOrbMixin extends Entity {
         this.yo = this.getY();
         this.zo = this.getZ();
 
-        this.scanForEntities();
+        this.followNearbyPlayer();
 
         if (this.followingPlayer != null && !(this.followingPlayer.isSpectator() || this.followingPlayer.isDeadOrDying())) {
             this.playerTouch(this.followingPlayer);

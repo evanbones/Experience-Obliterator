@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.SoundInstance;
+import net.minecraft.client.sounds.SoundEngine;
 import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.sounds.SoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,14 +18,14 @@ public abstract class ClientLevelMixin {
             method = "playSound",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/sounds/SoundManager;play(Lnet/minecraft/client/resources/sounds/SoundInstance;)V"
+                    target = "Lnet/minecraft/client/sounds/SoundManager;play(Lnet/minecraft/client/resources/sounds/SoundInstance;)Lnet/minecraft/client/sounds/SoundEngine$PlayResult;"
             )
     )
-    private void experience_obliterator$wrapPlay(SoundManager manager, SoundInstance sound, Operation<Void> original) {
-        if (ModConfig.get().disableXpPickupSound && sound.getLocation().equals(SoundEvents.EXPERIENCE_ORB_PICKUP.getLocation())) {
-            return;
+    private SoundEngine.PlayResult experience_obliterator$wrapPlay(SoundManager manager, SoundInstance instance, Operation<SoundEngine.PlayResult> original) {
+        if (ModConfig.get().disableXpPickupSound && instance.getIdentifier().equals(SoundEvents.EXPERIENCE_ORB_PICKUP.location())) {
+            return null;
         }
-        original.call(manager, sound);
+        return original.call(manager, instance);
     }
 
     @WrapOperation(
@@ -34,10 +35,10 @@ public abstract class ClientLevelMixin {
                     target = "Lnet/minecraft/client/sounds/SoundManager;playDelayed(Lnet/minecraft/client/resources/sounds/SoundInstance;I)V"
             )
     )
-    private void experience_obliterator$wrapPlayDelayed(SoundManager manager, SoundInstance sound, int delay, Operation<Void> original) {
-        if (ModConfig.get().disableXpPickupSound && sound.getLocation().equals(SoundEvents.EXPERIENCE_ORB_PICKUP.getLocation())) {
+    private void experience_obliterator$wrapPlayDelayed(SoundManager manager, SoundInstance instance, int delay, Operation<Void> original) {
+        if (ModConfig.get().disableXpPickupSound && instance.getIdentifier().equals(SoundEvents.EXPERIENCE_ORB_PICKUP.location())) {
             return;
         }
-        original.call(manager, sound, delay);
+        original.call(manager, instance, delay);
     }
 }

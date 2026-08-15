@@ -10,11 +10,6 @@ neoForge {
         accessTransformers.from(at.absolutePath)
     }
 
-    parchment {
-        minecraftVersion = parchment_minecraft
-        mappingsVersion = parchment_version
-    }
-
     runs {
         configureEach {
             systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
@@ -22,15 +17,19 @@ neoForge {
         }
         client {
             client()
-        }
-        server {
-            server()
+            gameDirectory = this.mkdir(this.file("runs/client"))
         }
         data {
-            data()
+            clientData()
+            gameDirectory = this.mkdir(this.file("runs/data"))
             programArguments.addAll '--mod', mod_id, '--all',
                     '--output', file('src/generated/resources/').absolutePath,
                     '--existing', file('src/main/resources/').absolutePath
+        }
+        server {
+            server()
+            this.file("runs/server").createParentDirectories()
+            gameDirectory = this.mkdir(this.file("runs/server"))
         }
     }
 
@@ -47,13 +46,8 @@ dependencies {
     // YACL
     implementation "maven.modrinth:yacl:${yacl_version}-neoforge"
 
-    // EMI
-    compileOnly "dev.emi:emi-neoforge:${emi_version}"
-    runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
-
     // Echo Chest
-    compileOnly "maven.modrinth:echo-chest:${echo_chest_version}-NeoForge"
-    //runtimeOnly "maven.modrinth:puzzles-lib:${puzzles_lib_version}-NeoForge"
+    compileOnly "maven.modrinth:echo-chest:${echo_chest_neoforge_version}"
 
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.6'

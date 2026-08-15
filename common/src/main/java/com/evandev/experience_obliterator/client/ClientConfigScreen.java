@@ -50,12 +50,6 @@ public class ClientConfigScreen {
                         () -> ModConfig.get().disableXpLevelSound,
                         val -> ModConfig.get().disableXpLevelSound = val));
 
-        if (Services.PLATFORM.isModLoaded("emi")) {
-            experienceCategoryBuilder.option(createBoolOption("disable_emi_experience_display", true,
-                    () -> ModConfig.get().disableEmiExperienceDisplay,
-                    val -> ModConfig.get().disableEmiExperienceDisplay = val));
-        }
-
         if (Services.PLATFORM.isModLoaded("echochest")) {
             experienceCategoryBuilder.option(createBoolOption("disable_echo_chest_experience_display", true,
                     () -> ModConfig.get().disableEchoChestExperienceDisplay,

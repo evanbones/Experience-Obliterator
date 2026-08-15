@@ -1,7 +1,7 @@
 package com.evandev.experience_obliterator.mixin.echochest;
 
 import com.evandev.experience_obliterator.config.ModConfig;
-import fuzs.echochest.world.inventory.EchoChestMenu;
+import fuzs.echochest.common.world.inventory.EchoChestMenu;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

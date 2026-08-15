@@ -13,7 +13,7 @@ public abstract class PlayerMixin {
             method = "giveExperienceLevels",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"
+                    target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"
             )
     )
     private float experience_obliterator$modifyExperienceLevelVolume(float volume) {

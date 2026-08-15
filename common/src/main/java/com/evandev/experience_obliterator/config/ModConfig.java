@@ -58,9 +58,6 @@ public class ModConfig {
     @SerializedName("disable_xp_level_sound")
     public boolean disableXpLevelSound = true;
 
-    @SerializedName("disable_emi_experience_display")
-    public boolean disableEmiExperienceDisplay = true;
-
     @SerializedName("disable_echo_chest_experience_display")
     public boolean disableEchoChestExperienceDisplay = true;
 

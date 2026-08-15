@@ -8,13 +8,11 @@ import java.util.List;
 import java.util.Set;
 
 public class ExperienceObliteratorMixinPlugin implements IMixinConfigPlugin {
-    private boolean isEmiLoaded;
     private boolean isEchoChestLoaded;
 
     @Override
     public void onLoad(String mixinPackage) {
-        isEmiLoaded = checkClass("dev.emi.emi.api.recipe.EmiRecipe");
-        isEchoChestLoaded = checkClass("fuzs.echochest.world.inventory.EchoChestMenu");
+        isEchoChestLoaded = checkClass("fuzs.echochest.common.world.inventory.EchoChestMenu");
     }
 
     private boolean checkClass(String className) {
@@ -24,10 +22,6 @@ public class ExperienceObliteratorMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.contains(".emi.")) {
-            return isEmiLoaded;
-        }
-
         if (mixinClassName.contains(".echochest.")) {
             return isEchoChestLoaded;
         }

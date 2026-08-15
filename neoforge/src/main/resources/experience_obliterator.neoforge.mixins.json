@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.evandev.experience_obliterator.mixin",
+  "plugin": "com.evandev.experience_obliterator.mixin.ExperienceObliteratorMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "client.emi.EmiCookingRecipeMixin",
+    "client.emi.EmiGrindstoneDisenchantingBookRecipeMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

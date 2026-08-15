@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.evandev.experience_obliterator.mixin",
+  "compatibilityLevel": "JAVA_18",
+  "mixins": [
+    "ExperienceOrbMixin",
+    "PlayerMixin",
+    "ServerLevelMixin"
+  ],
+  "client": [
+    "client.ClientLevelMixin",
+    "client.ExperienceOrbRendererMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -17,7 +17,7 @@ The mod offers many configurable tweaks that help completely **obliterate** expe
 * Disable experience-related displays from [EMI](https://modrinth.com/mod/emi) when loaded.
 * Mute all sounds associated with picking up experience orbs and gaining levels.
 * Disable the functionality of Anvils and Enchanting Tables.
-* Support 
+* Support for removing Experience-related tooltips from [Echo Chest](https://modrinth.com/mod/echo-chest).
 
 ## License
 

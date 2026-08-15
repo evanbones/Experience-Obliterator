@@ -28,6 +28,12 @@ public class ModConfig {
     @SerializedName("hide_experience_bar")
     public boolean hideExperienceBar = true;
 
+    @SerializedName("hide_experience_level")
+    public boolean hideExperienceLevel = true;
+
+    @SerializedName("hide_experience_bar_fill")
+    public boolean hideExperienceBarFill = true;
+
     @SerializedName("disable_anvil")
     public boolean disableAnvil = false;
 

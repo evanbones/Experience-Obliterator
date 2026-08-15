@@ -23,9 +23,9 @@ dependencies {
     modImplementation "com.terraformersmc:modmenu:${mod_menu_version}"
 
     // Echo Chest
-    modImplementation "maven.modrinth:echo-chest:${echo_chest_version}-Fabric"
-    modRuntimeOnly "maven.modrinth:puzzles-lib:${puzzles_lib_version}-Fabric"
-    modRuntimeOnly "maven.modrinth:forge-config-api-port:v21.1.6-1.21.1-Fabric"
+    modCompileOnly "maven.modrinth:echo-chest:${echo_chest_version}-Fabric"
+    //modRuntimeOnly "maven.modrinth:puzzles-lib:${puzzles_lib_version}-Fabric"
+    //modRuntimeOnly "maven.modrinth:forge-config-api-port:v21.1.6-1.21.1-Fabric"
 
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"

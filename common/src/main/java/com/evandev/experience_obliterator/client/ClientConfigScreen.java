@@ -31,6 +31,12 @@ public class ClientConfigScreen {
                 .option(createBoolOption("hide_experience_bar", true,
                         () -> ModConfig.get().hideExperienceBar,
                         val -> ModConfig.get().hideExperienceBar = val))
+                .option(createBoolOption("hide_experience_level", true,
+                        () -> ModConfig.get().hideExperienceLevel,
+                        val -> ModConfig.get().hideExperienceLevel = val))
+                .option(createBoolOption("hide_experience_bar_fill", true,
+                        () -> ModConfig.get().hideExperienceBarFill,
+                        val -> ModConfig.get().hideExperienceBarFill = val))
                 .option(createBoolOption("disable_anvil", false,
                         () -> ModConfig.get().disableAnvil,
                         val -> ModConfig.get().disableAnvil = val))

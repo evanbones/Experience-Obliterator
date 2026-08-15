@@ -18,17 +18,20 @@ public class ClientEventHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onRenderGuiLayerPre(RenderGuiLayerEvent.Pre event) {
-        if (!ModConfig.get().hideExperienceBar) {
+        boolean hideExperienceBar = ModConfig.get().hideExperienceBar;
+        boolean hideExperienceLevel = ModConfig.get().hideExperienceLevel;
+
+        if (!hideExperienceBar && !hideExperienceLevel) {
             return;
         }
 
         ResourceLocation layer = event.getName();
-        LocalPlayer player = Minecraft.getInstance().player;
-        Gui gui = Minecraft.getInstance().gui;
 
-        boolean isMounted = player != null && player.jumpableVehicle() != null;
+        if (hideExperienceBar && layer.equals(VanillaGuiLayers.HOTBAR)) {
+            LocalPlayer player = Minecraft.getInstance().player;
+            Gui gui = Minecraft.getInstance().gui;
+            boolean isMounted = player != null && player.jumpableVehicle() != null;
 
-        if (layer.equals(VanillaGuiLayers.HOTBAR)) {
             gui.leftHeight -= 7;
             gui.rightHeight -= 7;
 
@@ -38,7 +41,11 @@ public class ClientEventHandler {
             }
         }
 
-        if (layer.equals(VanillaGuiLayers.EXPERIENCE_BAR) || layer.equals(VanillaGuiLayers.EXPERIENCE_LEVEL)) {
+        if (hideExperienceBar && layer.equals(VanillaGuiLayers.EXPERIENCE_BAR)) {
+            event.setCanceled(true);
+        }
+
+        if (hideExperienceLevel && layer.equals(VanillaGuiLayers.EXPERIENCE_LEVEL)) {
             event.setCanceled(true);
         }
     }

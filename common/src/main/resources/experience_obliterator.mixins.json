@@ -4,11 +4,13 @@
   "package": "com.evandev.experience_obliterator.mixin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
+    "AnvilMenuMixin",
     "ExperienceOrbMixin",
     "PlayerMixin",
     "ServerLevelMixin"
   ],
   "client": [
+    "client.AnvilScreenMixin",
     "client.ClientLevelMixin",
     "client.ExperienceOrbRendererMixin"
   ],

@@ -47,9 +47,26 @@ public class ClientConfigScreen {
                         val -> ModConfig.get().disableEmiExperienceDisplay = val))
                 .build();
 
+        ConfigCategory anvilCategory = ConfigCategory.createBuilder()
+                .name(Component.translatable("category.experience_obliterator.anvil"))
+                .option(createBoolOption("remove_anvil_limit", false,
+                        () -> ModConfig.get().removeAnvilLimit,
+                        val -> ModConfig.get().removeAnvilLimit = val))
+                .option(createBoolOption("no_anvil_enchant_cost", false,
+                        () -> ModConfig.get().noAnvilEnchantCost,
+                        val -> ModConfig.get().noAnvilEnchantCost = val))
+                .option(createBoolOption("no_anvil_repair_cost", false,
+                        () -> ModConfig.get().noAnvilRepairCost,
+                        val -> ModConfig.get().noAnvilRepairCost = val))
+                .option(createBoolOption("no_anvil_rename_cost", false,
+                        () -> ModConfig.get().noAnvilRenameCost,
+                        val -> ModConfig.get().noAnvilRenameCost = val))
+                .build();
+
         YetAnotherConfigLib.Builder builder = YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable("config.experience_obliterator.title"))
                 .category(experienceCategory)
+                .category(anvilCategory)
                 .save(ModConfig::save);
 
         return builder.build().generateScreen(parent);

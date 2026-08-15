@@ -1,6 +1,7 @@
 {
   "config.experience_obliterator.title": "Experience Obliterator",
   "category.experience_obliterator.general": "Experience Removal",
+  "category.experience_obliterator.anvil": "Anvil Tweaks",
 
   "config.experience_obliterator.option.disable_orb_spawn": "Disable Orb Spawning",
   "config.experience_obliterator.option.disable_orb_spawn.tooltip": "Disables the spawning of experience orbs in the world.",
@@ -16,6 +17,18 @@
 
   "config.experience_obliterator.option.disable_anvil": "Disable Anvil",
   "config.experience_obliterator.option.disable_anvil.tooltip": "Disables right-click interaction with Anvils.",
+
+  "config.experience_obliterator.option.remove_anvil_limit": "Remove Anvil Limit",
+  "config.experience_obliterator.option.remove_anvil_limit.tooltip": "Removes the 'Too Expensive!' limit for anvils, allowing you to perform operations regardless of the level cost.",
+
+  "config.experience_obliterator.option.no_anvil_enchant_cost": "No Anvil Enchant Cost",
+  "config.experience_obliterator.option.no_anvil_enchant_cost.tooltip": "Sets the experience cost for combining enchantments (via books or items) to 0.",
+
+  "config.experience_obliterator.option.no_anvil_repair_cost": "No Anvil Repair Cost",
+  "config.experience_obliterator.option.no_anvil_repair_cost.tooltip": "Sets the experience cost for all anvil repairs (using materials or combining damaged items) to 0.",
+
+  "config.experience_obliterator.option.no_anvil_rename_cost": "No Anvil Rename Cost",
+  "config.experience_obliterator.option.no_anvil_rename_cost.tooltip": "Sets the experience cost for all anvil renames to 0.",
 
   "config.experience_obliterator.option.disable_enchant_table": "Disable Enchanting Table",
   "config.experience_obliterator.option.disable_enchant_table.tooltip": "Disables right-click interaction with Enchanting Tables.",

@@ -31,6 +31,18 @@ public class ModConfig {
     @SerializedName("disable_anvil")
     public boolean disableAnvil = false;
 
+    @SerializedName("remove_anvil_limit")
+    public boolean removeAnvilLimit = false;
+
+    @SerializedName("no_anvil_enchant_cost")
+    public boolean noAnvilEnchantCost = false;
+
+    @SerializedName("no_anvil_repair_cost")
+    public boolean noAnvilRepairCost = false;
+
+    @SerializedName("no_anvil_rename_cost")
+    public boolean noAnvilRenameCost = false;
+
     @SerializedName("disable_enchant_table")
     public boolean disableEnchantTable = false;
 

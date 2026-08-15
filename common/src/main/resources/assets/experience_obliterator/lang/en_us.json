@@ -40,5 +40,8 @@
   "config.experience_obliterator.option.disable_xp_level_sound.tooltip": "Mutes the experience level-up sound effect.",
 
   "config.experience_obliterator.option.disable_emi_experience_display": "Disable EMI XP Display",
-  "config.experience_obliterator.option.disable_emi_experience_display.tooltip": "Removes experience text from EMI cooking and grindstone workstation recipe displays."
+  "config.experience_obliterator.option.disable_emi_experience_display.tooltip": "Removes experience text from EMI cooking and grindstone workstation recipe displays.",
+
+  "config.experience_obliterator.option.disable_echo_chest_experience_display": "Echo Chest Hovertext Obliterator",
+  "config.experience_obliterator.option.disable_echo_chest_experience_display.tooltip": "Removes the hardcoded experience tooltip from Echo Chests, if it is installed."
 }

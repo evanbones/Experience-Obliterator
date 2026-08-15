@@ -55,6 +55,9 @@ public class ModConfig {
     @SerializedName("disable_emi_experience_display")
     public boolean disableEmiExperienceDisplay = true;
 
+    @SerializedName("disable_echo_chest_experience_display")
+    public boolean disableEchoChestExperienceDisplay = true;
+
     public static ModConfig get() {
         if (INSTANCE == null) {
             load();

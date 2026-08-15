@@ -2,17 +2,20 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.evandev.experience_obliterator.mixin",
+  "plugin": "com.evandev.experience_obliterator.mixin.ExperienceObliteratorMixinPlugin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
     "AnvilMenuMixin",
     "ExperienceOrbMixin",
     "PlayerMixin",
-    "ServerLevelMixin"
+    "ServerLevelMixin",
+    "echochest.EchoChestMenuMixin"
   ],
   "client": [
     "client.AnvilScreenMixin",
     "client.ClientLevelMixin",
-    "client.ExperienceOrbRendererMixin"
+    "client.ExperienceOrbRendererMixin",
+    "client.echochest.EchoChestScreenMixin"
   ],
   "server": [],
   "injectors": {

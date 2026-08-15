@@ -1,6 +1,7 @@
 package com.evandev.experience_obliterator.client;
 
 import com.evandev.experience_obliterator.config.ModConfig;
+import com.evandev.experience_obliterator.platform.Services;
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionDescription;
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
 public class ClientConfigScreen {
 
     public static Screen create(Screen parent) {
-        ConfigCategory experienceCategory = ConfigCategory.createBuilder()
+        ConfigCategory.Builder experienceCategoryBuilder = ConfigCategory.createBuilder()
                 .name(Component.translatable("category.experience_obliterator.general"))
                 .option(createBoolOption("disable_orb_spawn", true,
                         () -> ModConfig.get().disableOrbSpawn,
@@ -41,11 +42,21 @@ public class ClientConfigScreen {
                         val -> ModConfig.get().disableXpPickupSound = val))
                 .option(createBoolOption("disable_xp_level_sound", true,
                         () -> ModConfig.get().disableXpLevelSound,
-                        val -> ModConfig.get().disableXpLevelSound = val))
-                .option(createBoolOption("disable_emi_experience_display", true,
-                        () -> ModConfig.get().disableEmiExperienceDisplay,
-                        val -> ModConfig.get().disableEmiExperienceDisplay = val))
-                .build();
+                        val -> ModConfig.get().disableXpLevelSound = val));
+
+        if (Services.PLATFORM.isModLoaded("emi")) {
+            experienceCategoryBuilder.option(createBoolOption("disable_emi_experience_display", true,
+                    () -> ModConfig.get().disableEmiExperienceDisplay,
+                    val -> ModConfig.get().disableEmiExperienceDisplay = val));
+        }
+
+        if (Services.PLATFORM.isModLoaded("echochest")) {
+            experienceCategoryBuilder.option(createBoolOption("disable_echo_chest_experience_display", true,
+                    () -> ModConfig.get().disableEchoChestExperienceDisplay,
+                    val -> ModConfig.get().disableEchoChestExperienceDisplay = val));
+        }
+
+        ConfigCategory experienceCategory = experienceCategoryBuilder.build();
 
         ConfigCategory anvilCategory = ConfigCategory.createBuilder()
                 .name(Component.translatable("category.experience_obliterator.anvil"))

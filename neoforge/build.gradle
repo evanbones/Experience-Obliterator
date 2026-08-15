@@ -51,6 +51,10 @@ dependencies {
     compileOnly "dev.emi:emi-neoforge:${emi_version}"
     runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
 
+    // Echo Chest
+    implementation "maven.modrinth:echo-chest:${echo_chest_version}-NeoForge"
+    runtimeOnly "maven.modrinth:puzzles-lib:${puzzles_lib_version}-NeoForge"
+
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.6'
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.5.0'

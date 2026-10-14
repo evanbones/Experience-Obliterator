@@ -122,3 +122,5 @@ runs/
 !gradle-wrapper.jar
 
 .cache/
+# Kotlin compiler sessions
+.kotlin/

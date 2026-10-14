@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.evandev.experience_obliterator.mixin",
+  "plugin": "com.evandev.experience_obliterator.mixin.ExperienceObliteratorMixinPlugin",
+  "compatibilityLevel": "JAVA_${java_version}",
+  "mixins": [
+    "AnvilMenuMixin",
+    "ExperienceOrbMixin",
+    "PlayerMixin",
+    "ServerLevelMixin",
+    "echochest.EchoChestMenuMixin"
+  ],
+  "client": [
+    "client.AnvilScreenMixin",
+    "client.ClientLevelMixin",
+    "client.ExperienceOrbRendererMixin",
+    "client.HudMixin",
+    "client.echochest.EchoChestScreenMixin",
+    "client.emi.EmiCookingRecipeMixin",
+    "client.emi.EmiGrindstoneDisenchantingBookRecipeMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

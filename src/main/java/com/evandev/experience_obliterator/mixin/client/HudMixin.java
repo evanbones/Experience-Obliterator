@@ -5,6 +5,7 @@ import com.evandev.experience_obliterator.config.ModConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+
 //? if >=26.1 {
 /*import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,13 +18,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 *///?} else if >=1.21 {
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //?} else {
 /*import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -37,25 +36,28 @@ import org.spongepowered.asm.mixin.injection.At;
 
 //? if >=26.2 {
 /*@Mixin(Hud.class)
-*///?} else {
+ *///?} else {
 @Mixin(Gui.class)
 //?}
 public abstract class HudMixin {
 
     //? if >=1.21 && <26.1 {
-    // Cancelled from inside rather than by layer, since Platform renders VanillaBackport's locator bar within these methods
-    @Inject(method = "renderExperienceBar", at = @At("HEAD"), cancellable = true)
-    private void experience_obliterator$hideExperienceBar(GuiGraphics guiGraphics, int x, CallbackInfo callback) {
+    @WrapOperation(method = "renderExperienceBar", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/client/player/LocalPlayer;getXpNeededForNextLevel()I"))
+    private int experience_obliterator$hideExperienceBar(LocalPlayer player, Operation<Integer> original) {
         if (ModConfig.get().hideExperienceBar) {
-            callback.cancel();
+            return 0;
         }
+        return original.call(player);
     }
 
-    @Inject(method = "renderExperienceLevel", at = @At("HEAD"), cancellable = true)
-    private void experience_obliterator$hideExperienceLevel(GuiGraphics guiGraphics, DeltaTracker deltaTracker, CallbackInfo callback) {
+    @WrapOperation(method = "renderExperienceLevel", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/client/gui/Gui;isExperienceBarVisible()Z"))
+    private boolean experience_obliterator$hideExperienceLevel(Gui gui, Operation<Boolean> original) {
         if (ModConfig.get().hideExperienceLevel) {
-            callback.cancel();
+            return false;
         }
+        return original.call(gui);
     }
 
     @WrapOperation(method = "renderExperienceBar", at = @At(value = "INVOKE",
@@ -101,8 +103,7 @@ public abstract class HudMixin {
     *///?}
 
     //? if >=26.1 {
-    /*// Don't swap the locator bar out for a hidden experience bar
-    @Inject(method = "willPrioritizeExperienceInfo", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "willPrioritizeExperienceInfo", at = @At("HEAD"), cancellable = true)
     private void experience_obliterator$keepLocatorBar(CallbackInfoReturnable<Boolean> cir) {
         if (ModConfig.get().hideExperienceBar) {
             cir.setReturnValue(false);
@@ -110,12 +111,12 @@ public abstract class HudMixin {
     }
     *///?}
 
-    // (Neo)Forge lay out the health rows with leftHeight instead, see NeoForgeClientEvents and ForgeClientEvents
+    // (Neo)Forge lays out the health rows with leftHeight instead, see NeoForgeClientEvents and ForgeClientEvents
     //? if >=26.1 {
     /*@ModifyConstant(method = "extractPlayerHealth", constant = @Constant(intValue = 39), require = 0)
-    *///?} else {
+     *///?} else {
     @ModifyConstant(method = "renderPlayerHealth", constant = @Constant(intValue = 39), require = 0)
-    //?}
+            //?}
     private int experience_obliterator$closeExperienceBarGap(int constant) {
         return ExperienceBarGap.shouldClose() ? constant - 7 : constant;
     }

@@ -4,6 +4,7 @@ package com.evandev.experience_obliterator.mixin.client.emi;
 import com.evandev.experience_obliterator.config.ModConfig;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.emi.emi.api.widget.TextWidget;
 import dev.emi.emi.api.widget.WidgetHolder;
 import dev.emi.emi.recipe.special.EmiGrindstoneDisenchantingBookRecipe;
@@ -11,6 +12,7 @@ import net.minecraft.util.FormattedCharSequence;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+@IfModLoaded("emi")
 @Mixin(value = EmiGrindstoneDisenchantingBookRecipe.class, remap = false)
 public abstract class EmiGrindstoneDisenchantingBookRecipeMixin {
 

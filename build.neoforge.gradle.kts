@@ -115,6 +115,24 @@ dependencies {
 
     // Echo Chest
     compileOnly("maven.modrinth:echo-chest:${dep("echo_chest")}")
+
+    // Vanilla Backport
+    optDep("vanilla_backport")?.let {
+        compileOnly("maven.modrinth:vanillabackport:$it")
+        localRuntime("maven.modrinth:vanillabackport:$it")
+        compileOnly("maven.modrinth:platform:${dep("platform")}")
+        localRuntime("maven.modrinth:platform:${dep("platform")}")
+    }
+
+    // Mixin Constraints
+    compileOnly("com.moulberry:mixinconstraints:${dep("mixin_constraints")}")
+    val mixinConstraints = implementation("com.moulberry:mixinconstraints") {
+        version {
+            strictly("[${dep("mixin_constraints")},)")
+            prefer(dep("mixin_constraints"))
+        }
+    }
+    "jarJar"(mixinConstraints!!)
 }
 
 val javaVer = (property("deps.java_version") as String).toInt()

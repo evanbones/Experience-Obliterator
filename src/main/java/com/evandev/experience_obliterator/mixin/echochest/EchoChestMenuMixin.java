@@ -1,6 +1,7 @@
 package com.evandev.experience_obliterator.mixin.echochest;
 
 import com.evandev.experience_obliterator.config.ModConfig;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 //? if >=26.1 {
 /*import fuzs.echochest.common.world.inventory.EchoChestMenu;
 *///?} else {
@@ -12,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@IfModLoaded("echochest")
 @Mixin(value = EchoChestMenu.class, remap = false)
 public class EchoChestMenuMixin {
 

@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.evandev.experience_obliterator.mixin",
-  "plugin": "com.evandev.experience_obliterator.mixin.ExperienceObliteratorMixinPlugin",
+  "plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin",
   "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
     "AnvilMenuMixin",

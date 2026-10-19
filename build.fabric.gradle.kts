@@ -80,6 +80,15 @@ dependencies {
 
     // Echo Chest
     modCompileOnly("maven.modrinth:echo-chest:${dep("echo_chest")}")
+
+    // Vanilla Backport
+    optDep("vanilla_backport")?.let {
+        modCompileOnly("maven.modrinth:vanillabackport:$it")
+        modCompileOnly("maven.modrinth:platform:${dep("platform")}")
+    }
+
+    // Mixin Constraints
+    include(implementation("com.moulberry:mixinconstraints:${dep("mixin_constraints")}")!!)
 }
 
 tasks {

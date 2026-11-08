@@ -16,6 +16,7 @@
     "client.ClientLevelMixin",
     "client.ExperienceOrbRendererMixin",
     "client.HudMixin",
+    "client.brickandmortar.KilnEmiRecipeMixin",
     "client.echochest.EchoChestScreenMixin",
     "client.emi.EmiCookingRecipeMixin",
     "client.emi.EmiGrindstoneDisenchantingBookRecipeMixin",

@@ -130,6 +130,11 @@ dependencies {
     // Echo Chest
     modCompileOnly("maven.modrinth:echo-chest:${dep("echo_chest")}")
 
+    // Brick and Mortar
+    optDep("brick_and_mortar")?.let {
+        modCompileOnly("maven.modrinth:brick-and-mortar:$it")
+    }
+
     // Vanilla Backport
     optDep("vanilla_backport")?.let {
         modCompileOnly("maven.modrinth:vanillabackport:$it")

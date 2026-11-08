@@ -1,3 +1,3 @@
-### Fixed
+### Added
 
-- Fixed flicker with Gnetum.
+- Brick & Mortar's experience display is now removed from EMI.
